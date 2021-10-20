@@ -4,7 +4,6 @@
 ARG VARIANT="buster"
 FROM mcr.microsoft.com/vscode/devcontainers/base:0-${VARIANT}
 
-
 RUN curl -fsSL https://pkgs.tailscale.com/stable/debian/buster.gpg | sudo apt-key add - \
     && curl -fsSL https://pkgs.tailscale.com/stable/debian/buster.list | sudo tee /etc/apt/sources.list.d/tailscale.list \
     && apt-get update \
