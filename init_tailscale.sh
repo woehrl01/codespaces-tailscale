@@ -10,3 +10,4 @@ else
     sudo tailscale up --authkey=$TAILSCALE_EPHEMERAL_KEY ; 
 fi
 
+sudo tailscale status --json | sudo jq -r '.Peer | to_entries | .[].value | {name: .HostName, ip: .TailscaleIPs[-1]} | "\(.ip) \(.name)"' | sudo tee -a /etc/hosts
